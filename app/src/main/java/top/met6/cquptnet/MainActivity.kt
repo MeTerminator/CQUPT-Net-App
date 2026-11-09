@@ -10,6 +10,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val settings = SettingsManager(this)
+        settings.importBundledAccount(assets)
 
         setContent {
             CQUPTNetTheme {

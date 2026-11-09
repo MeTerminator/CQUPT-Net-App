@@ -24,6 +24,9 @@ Thumbs.db
 *.aar
 *.jar
 
+# Optional bundled account credentials
+/app/src/main/assets/accounts.json
+
 # Captures and logs
 captures/
 *.log

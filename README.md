@@ -58,6 +58,24 @@
    adb install app/build/outputs/apk/debug/app-debug.apk
    ```
 
+### 可选的内置账号
+
+如需预填账号，在打包前创建 `app/src/main/assets/accounts.json`：
+
+```json
+{
+  "studentId": "你的校园网账号",
+  "password": "你的校园网密码",
+  "isp": "telecom"
+}
+```
+
+`studentId` 和 `password` 必须是非空字符串。`isp` 可省略，支持 `xyw`（教师）、`telecom`（电信）、`cmcc`（移动）和 `unicom`（联通），省略时沿用设置中的运营商（默认 `xyw`）。
+
+打开 App 时，如果本地从未保存过账号或密码，App 会导入预填值。可以在「设置」中查看和修改，也可以直接点「登录」。文件缺失或账号格式不正确时，仍可手动填写。
+
+该文件已加入 `.gitignore`。任何拿到 APK 的人都可以解包读取其中的明文账号和密码，请仅在自用包中放入真实凭据。打包时会先加入该文件，再按现有配置签名。覆盖安装请继续使用原来的签名密钥；签名后直接修改 APK 会使签名失效。
+
 ## 📂 项目结构
 
 ```text
